@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short, kind, interactive explanation of why we avoid the goals that matter — and one honest first step.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0e13">
+  <title>The Comfort Loop — why you keep not doing the thing</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='32'%20cy='58'%20r='24'%20fill='%235fd0c0'/%3E%3Ccircle%20cx='68'%20cy='44'%20r='13'%20fill='%23f2a65a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <p class="wordmark">the comfort loop</p>
+    <p class="head-note">a short, kind read · about 5 minutes</p>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1 · HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas id="dust" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner reveal">
+        <!-- COPY: draft / placeholder — rewrite in your own voice -->
+        <p class="kicker kicker-teal">for the goal you keep not starting</p>
+        <h1 id="hero-title">You have a goal. You know what it needs. And somehow, you keep <em>not doing it.</em></h1>
+        <p class="lede">You&rsquo;re not broken. Your brain is just doing its job &mdash; and its job isn&rsquo;t to help you grow. It&rsquo;s to keep you comfortable. This page shows you how that works, kindly, and offers one small, honest way forward.</p>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="cue-word">scroll gently</span>
+        <span class="cue-line"></span>
+      </div>
+    </section>
+
+    <!-- ============ 2 · THE TWO TRAPS ============ -->
+    <section class="section" id="traps" aria-labelledby="traps-title">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="kicker-row">
+            <p class="kicker kicker-amber">01 · the two traps</p>
+            <span class="draft-chip" title="Placeholder copy — rewrite in your own voice">draft copy · placeholder</span>
+          </div>
+          <h2 id="traps-title">Your brain redrew the map</h2>
+          <!-- COPY: draft / placeholder — rewrite in your own voice -->
+          <p class="intro">Every real goal sits at the end of an unglamorous path: show up, do the boring middle, repeat. But your brain &mdash; which reads discomfort as danger &mdash; quietly drew a second route. It&rsquo;s warmer, easier, and dotted with things that feel urgent, interesting, or even responsible. Neither path looks like a trap. That&rsquo;s the point.</p>
+        </div>
+
+        <div class="reveal">
+          <ul class="legend" aria-label="Map legend">
+            <li><span class="key key-goal" aria-hidden="true"></span>What your goal actually needs</li>
+            <li><span class="key key-brain" aria-hidden="true"></span>Where your brain wants to take you</li>
+          </ul>
+
+          <div class="map-stage">
+            <svg class="map-svg" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <defs>
+                <filter id="glowA" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="6"/>
+                </filter>
+                <linearGradient id="gradBrain" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#f2a65a"/>
+                  <stop offset="1" stop-color="#d97b3f"/>
+                </linearGradient>
+              </defs>
+              <path class="path-goal-glow" d="M 90 440 C 380 405 620 300 910 115" vector-effect="non-scaling-stroke"/>
+              <path class="path-goal" d="M 90 440 C 380 405 620 300 910 115" vector-effect="non-scaling-stroke"/>
+              <path class="path-brain-glow" d="M 90 440 C 150 480 230 482 292 446 C 355 408 418 418 458 452 C 500 488 566 482 610 438 C 656 392 718 384 762 426 C 806 468 866 458 906 412" vector-effect="non-scaling-stroke" filter="url(#glowA)"/>
+              <path class="path-brain" id="brain-path" d="M 90 440 C 150 480 230 482 292 446 C 355 408 418 418 458 452 C 500 488 566 482 610 438 C 656 392 718 384 762 426 C 806 468 866 458 906 412" vector-effect="non-scaling-stroke"/>
+            </svg>
+
+            <span class="map-dot" aria-hidden="true"></span>
+            <span class="map-label map-label--start">you, today</span>
+            <span class="goal-orb" aria-hidden="true"></span>
+            <span class="map-label map-label--goal">the goal</span>
+            <span class="map-label map-label--nowhere">comfortable&nbsp;nowhere</span>
+
+            <button class="bubble b1" type="button" aria-pressed="false" aria-controls="trap-card" aria-label="Distraction point 1 — the just-a-minute trap" style="--i:0">
+              <span class="bubble-num" aria-hidden="true">1</span>
+            </button>
+            <button class="bubble b2" type="button" aria-pressed="false" aria-controls="trap-card" aria-label="Distraction point 2 — the one-more-video trap" style="--i:1">
+              <span class="bubble-num" aria-hidden="true">2</span>
+            </button>
+            <button class="bubble b3" type="button" aria-pressed="false" aria-controls="trap-card" aria-label="Distraction point 3 — the more-research-first trap" style="--i:2">
+              <span class="bubble-num" aria-hidden="true">3</span>
+            </button>
+            <button class="bubble b4" type="button" aria-pressed="false" aria-controls="trap-card" aria-label="Distraction point 4 — the shiny-other-thing trap" style="--i:3">
+              <span class="bubble-num" aria-hidden="true">4</span>
+            </button>
+            <button class="bubble b5" type="button" aria-pressed="false" aria-controls="trap-card" aria-label="Distraction point 5 — the tomorrow-when-I'm-fresh trap" style="--i:4">
+              <span class="bubble-num" aria-hidden="true">5</span>
+            </button>
+          </div>
+
+          <p class="map-hint">Tap or click the glowing points on the winding path &mdash; each one opens a thought you&rsquo;ve probably had this week, and what&rsquo;s really underneath it.</p>
+
+          <article class="trap-card" id="trap-card" role="region" aria-live="polite" aria-label="Trap details">
+            <p class="trap-empty">Choose a glowing point on the amber path. Each one is a thought you&rsquo;ve probably had this week &mdash; recognizing yourself here isn&rsquo;t shame, it&rsquo;s information.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3 · THE COMPOUNDING COST ============ -->
+    <section class="section" id="cost" aria-labelledby="cost-title">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="kicker-row">
+            <p class="kicker kicker-teal">02 · the compounding cost</p>
+            <span class="draft-chip" title="Placeholder copy — rewrite in your own voice">draft copy · placeholder</span>
+          </div>
+          <h2 id="cost-title">What a year of &ldquo;later&rdquo; quietly adds up to</h2>
+          <!-- COPY: draft / placeholder — rewrite in your own voice -->
+          <p class="intro">Drag the slider below. Watch what gentle avoidance does to two very different things over the same year.</p>
+
+          <div class="time-machine">
+            <div class="slider-head">
+              <label for="time">Time passing</label>
+              <output id="time-out" for="time">Today</output>
+            </div>
+            <input type="range" id="time" min="0" max="365" step="1" value="0" aria-describedby="time-desc">
+            <p id="time-desc" class="visually-hidden">Drag from today to one year from now. Two bars below update to illustrate progress toward your goal versus comfort loop cycles.</p>
+            <div class="slider-ends" aria-hidden="true">
+              <span>today</span>
+              <span>one year from now</span>
+            </div>
+
+            <div class="bars">
+              <div class="bar-row">
+                <div class="bar-label">
+                  <span>Progress toward your goal</span>
+                  <span class="bar-val" id="goal-val">not started</span>
+                </div>
+                <div class="bar-track track-teal">
+                  <div class="bar-fill fill-teal" id="goal-fill"></div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  <span>Comfort loop cycles</span>
+                  <span class="bar-val" id="loop-val">waiting</span>
+                </div>
+                <div class="bar-track track-amber">
+                  <div class="bar-fill fill-amber" id="loop-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COPY: draft / placeholder — rewrite in your own voice -->
+            <p class="caption">The amber bar fills, empties, and fills again &mdash; the same handful of distractions cycling all year, always feeling new. The teal bar barely grows &mdash; not because you can&rsquo;t, but because it only moves when you act. Waiting has never moved it, and it never will. That&rsquo;s not a flaw in you; it&rsquo;s just the shape of the trade.</p>
+            <p class="figure-note">A simple illustration, not a measurement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4 · THE HONEST EXPLANATION ============ -->
+    <section class="section" id="explain" aria-labelledby="explain-title">
+      <div class="wrap prose reveal">
+        <div class="kicker-row">
+          <p class="kicker kicker-amber">03 · the honest explanation</p>
+          <span class="draft-chip" title="Placeholder copy — rewrite in your own voice">draft copy · placeholder</span>
+        </div>
+        <h2 id="explain-title">Why it works on you (because it works on everyone)</h2>
+        <!-- COPY: draft / placeholder — rewrite in your own voice -->
+        <p>Here&rsquo;s the honest part: your brain isn&rsquo;t sabotaging you &mdash; it&rsquo;s protecting you. It evolved to keep you safe, warm, and comfortable, not to pursue long-term goals. To your brain, discomfort is a warning light, even when that discomfort comes from something as ordinary as <strong>beginning</strong>. So it steers you away, gently and constantly, and it is very, very good at it.</p>
+        <p>What makes the steering so convincing is that the exits are genuinely enjoyable. The video really is interesting. The research really does feel responsible. Real curiosity gets activated &mdash; which is why &ldquo;just focus harder&rdquo; so rarely works. You&rsquo;re not fighting laziness; you&rsquo;re fighting your own healthy interest, arriving at the wrong moment.</p>
+        <p>So this isn&rsquo;t a character flaw, and it isn&rsquo;t a lack of discipline. It&rsquo;s a negotiation you were never shown the paperwork for. Each time the boring middle of your goal appears, a warmer exit lights up beside it &mdash; and you take it, because taking it is what a brain built for comfort does.</p>
+        <p>And here is the quiet reframe: you just noticed all of this. You walked the map, watched the loop fill and empty, and saw what a year of <em>later</em> actually holds. Noticing the pattern while it&rsquo;s happening is the first real skill &mdash; and you&rsquo;ve already practiced it once today. That&rsquo;s not nothing. That&rsquo;s where it starts.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5 · THE REFLECTION ============ -->
+    <section class="section" id="reflect" aria-labelledby="reflect-title">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="kicker-row">
+            <p class="kicker kicker-teal">04 · the reflection</p>
+            <span class="draft-chip" title="Placeholder copy — rewrite in your own voice">draft copy · placeholder</span>
+          </div>
+          <h2 id="reflect-title">Name the thing</h2>
+          <!-- COPY: draft / placeholder — rewrite in your own voice -->
+          <p class="intro">One small act of honesty, just for you. Nothing is sent anywhere and nothing is stored &mdash; your words stay on your screen, only for this moment.</p>
+
+          <form class="reflect-form" id="reflect-form" novalidate>
+            <div class="field" id="reflect-field">
+              <label for="avoided">What&rsquo;s one thing you&rsquo;ve been putting off for your goal?</label>
+              <p class="field-hint">A private reflection &mdash; it never leaves this page.</p>
+              <textarea id="avoided" name="avoided" rows="3" placeholder="e.g. &ldquo;outline the first chapter&rdquo; or &ldquo;send the email&rdquo; &mdash; messy counts" autocomplete="off"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Name it</button>
+            <p class="form-note" id="form-note" role="status">Even a few messy words count &mdash; write something first, then name it.</p>
+          </form>
+
+          <!-- Fixed response — same for every visitor, by design -->
+          <div class="response" id="response" hidden>
+            <p class="response-main">Named. That&rsquo;s the first honest moment.</p>
+            <p class="response-ask">Now &mdash; not tomorrow, not after one more thing &mdash; can you give it <strong>ten minutes</strong> right now?</p>
+            <p class="response-note">You&rsquo;ll see this same line no matter what you write. It&rsquo;s a nudge, not a reading &mdash; nothing on this page pretends to know you.</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="tally" id="tally">
+            <p class="tally-label">Your personal tally, saved only on this device.</p>
+            <button type="button" class="btn btn-ghost" id="tally-btn">I showed up today</button>
+            <p class="tally-count" id="tally-count">No days marked yet on this device.</p>
+            <p class="tally-note">Small is still showing up &mdash; that&rsquo;s all this ever asked. This counter lives in your browser&rsquo;s local storage on this device only: it isn&rsquo;t an account, nothing is synced or shared, and clearing this site&rsquo;s data will clear it.</p>
+            <p class="storage-note" id="storage-note" hidden>Heads up: this browser is blocking local storage right now, so the tally can&rsquo;t be saved between visits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p>A quiet explanation &mdash; not therapy, not advice, and no substitute for either. No accounts, no tracking, and nothing leaves your device.</p>
+    <p class="foot-draft">All copy on this page is first-draft placeholder text, written to be rewritten in your own voice.</p>
+    <p class="foot-made">Handmade with plain HTML, CSS, and JavaScript &mdash; no frameworks, no trackers.</p>
+  </footer>
+</body>
+</html>
