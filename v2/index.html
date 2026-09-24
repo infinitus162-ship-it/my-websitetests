@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive explanation of why meaningful goals can be surprisingly easy to avoid.">
+  <meta name="theme-color" content="#081013">
+  <title>The Comfort Loop</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="The Comfort Loop home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>The Comfort Loop</span>
+    </a>
+
+    <nav class="top-nav" aria-label="Page sections">
+      <a href="#traps">The traps</a>
+      <a href="#cost">The cost</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =========================================================
+         1. HERO
+    ========================================================== -->
+    <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">DRAFT COPY · REWRITE FOR YOUR OWN VOICE</p>
+
+        <h1 id="hero-title">
+          You have a goal.
+          You know what it needs.
+          And somehow, you keep not doing it.
+        </h1>
+
+        <p class="hero-lead">
+          You're not broken. Your brain is doing something remarkably ordinary:
+          protecting you from discomfort right now, even when that discomfort
+          is attached to something you genuinely care about.
+        </p>
+
+        <p class="hero-note">
+          This little experience is about noticing the pattern without turning
+          it into another reason to beat yourself up.
+        </p>
+      </div>
+
+      <div class="hero-visual" aria-label="A distant glowing shape representing your goal">
+        <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+        <div class="goal-glow" aria-hidden="true">
+          <span>GOAL</span>
+        </div>
+        <div class="goal-halo" aria-hidden="true"></div>
+      </div>
+
+      <a class="scroll-cue" href="#traps">
+        <span>Keep going</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- =========================================================
+         2. THE TWO TRAPS
+    ========================================================== -->
+    <section class="section-shell traps-section" id="traps" aria-labelledby="traps-title">
+      <div class="section-heading">
+        <p class="eyebrow">02 · THE TWO TRAPS</p>
+
+        <h2 id="traps-title">
+          The route can feel logical while quietly taking you somewhere else.
+        </h2>
+
+        <p>
+          The calm blue route is the one your goal actually needs.
+          The warmer route is the one your brain can make surprisingly
+          attractive when real action feels uncomfortable.
+        </p>
+
+        <p class="draft-tag">DRAFT COPY · REWRITE FOR YOUR OWN VOICE</p>
+      </div>
+
+      <div class="path-map" aria-label="Interactive map showing a goal path and distraction path">
+
+        <svg class="path-svg" viewBox="0 0 1000 560" role="img"
+             aria-label="Two routes: one direct goal path and one winding distraction path">
+          <defs>
+            <linearGradient id="goalPathGradient" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#163c42"></stop>
+              <stop offset="55%" stop-color="#3cb7b4"></stop>
+              <stop offset="100%" stop-color="#86ded4"></stop>
+            </linearGradient>
+
+            <linearGradient id="trapPathGradient" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#4e2d1c"></stop>
+              <stop offset="45%" stop-color="#dc8a48"></stop>
+              <stop offset="100%" stop-color="#ffbc72"></stop>
+            </linearGradient>
+
+            <filter id="goalGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="7" result="blur"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="blur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+              </feMerge>
+            </filter>
+
+            <filter id="trapGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="blur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Calm goal path -->
+          <path
+            class="path-underlay goal-path-underlay"
+            d="M 60 460 C 280 385, 500 285, 935 100">
+            <animate
+              attributeName="opacity"
+              values="0.45;0.75;0.45"
+              dur="5s"
+              repeatCount="indefinite">
+            </animate>
+          </path>
+
+          <path
+            class="goal-path"
+            d="M 60 460 C 280 385, 500 285, 935 100"
+            fill="none"
+            stroke="url(#goalPathGradient)"
+            stroke-width="12"
+            stroke-linecap="round"
+            filter="url(#goalGlow)">
+          </path>
+
+          <!-- Winding trap path -->
+          <path
+            class="path-underlay trap-path-underlay"
+            d="M 60 470 C 150 285, 245 510, 335 330 S 505 150, 600 325 S 795 475, 935 130">
+            <animate
+              attributeName="opacity"
+              values="0.40;0.80;0.40"
+              dur="6s"
+              repeatCount="indefinite">
+            </animate>
+          </path>
+
+          <path
+            class="trap-path"
+            d="M 60 470 C 150 285, 245 510, 335 330 S 505 150, 600 325 S 795 475, 935 130"
+            fill="none"
+            stroke="url(#trapPathGradient)"
+            stroke-width="12"
+            stroke-linecap="round"
+            filter="url(#trapGlow)">
+          </path>
+
+          <!-- Start / destination markers -->
+          <circle cx="60" cy="460" r="10" fill="#0c2023" stroke="#86ded4" stroke-width="3"></circle>
+          <circle cx="935" cy="100" r="10" fill="#0c2023" stroke="#86ded4" stroke-width="3"></circle>
+        </svg>
+
+        <div class="path-label goal-label">
+          <span class="path-label-dot teal-dot" aria-hidden="true"></span>
+          <span>
+            <strong>What your goal actually needs</strong>
+            <small>Small, direct, sometimes uncomfortable action.</small>
+          </span>
+        </div>
+
+        <div class="path-label trap-label">
+          <span class="path-label-dot amber-dot" aria-hidden="true"></span>
+          <span>
+            <strong>Where your brain wants to take you</strong>
+            <small>Interesting, comfortable, convincing detours.</small>
+          </span>
+        </div>
+
+        <!-- Interactive bubbles -->
+        <button
+          class="distraction-bubble bubble-one"
+          type="button"
+          aria-expanded="false"
+          aria-controls="trap-card-one">
+          <span class="bubble-number">01</span>
+          <span class="sr-only">Open distraction point: checking something quickly</span>
+        </button>
+
+        <button
+          class="distraction-bubble bubble-two"
+          type="button"
+          aria-expanded="false"
+          aria-controls="trap-card-two">
+          <span class="bubble-number">02</span>
+          <span class="sr-only">Open distraction point: preparing more before starting</span>
+        </button>
+
+        <button
+          class="distraction-bubble bubble-three"
+          type="button"
+          aria-expanded="false"
+          aria-controls="trap-card-three">
+          <span class="bubble-number">03</span>
+          <span class="sr-only">Open distraction point: following an interesting side topic</span>
+        </button>
+
+        <button
+          class="distraction-bubble bubble-four"
+          type="button"
+          aria-expanded="false"
+          aria-controls="trap-card-four">
+          <span class="bubble-number">04</span>
+          <span class="sr-only">Open distraction point: organizing instead of doing</span>
+        </button>
+
+        <button
+          class="distraction-bubble bubble-five"
+          type="button"
+          aria-expanded="false"
+          aria-controls="trap-card-five">
+          <span class="bubble-number">05</span>
+          <span class="sr-only">Open distraction point: choosing easy entertainment</span>
+        </button>
+      </div>
+
+      <div class="bubble-hint">
+        <span class="hint-dot" aria-hidden="true"></span>
+        Click a glowing point. The cards are explanations, not diagnoses.
+      </div>
+
+      <div class="trap-cards" id="trap-cards">
+
+        <article class="trap-card" id="trap-card-one" hidden>
+          <div class="trap-card-topline">
+            <span class="card-index">01</span>
+            <span class="card-type instant">Instant gratification</span>
+          </div>
+
+          <h3>“I'll just check this one thing first.”</h3>
+
+          <p>
+            <strong>Draft voice:</strong>
+            “It's only going to take a minute. Then I'll start properly.”
+          </p>
+
+          <div class="honest-layer">
+            <span>What may actually be happening</span>
+            <p>
+              Your brain has found a tiny, immediate reward that feels harmless.
+              The goal requires a delayed payoff; the distraction offers a payoff
+              right now. The important part is not the phone, tab, or message itself.
+              It's the relief of postponing the harder moment.
+            </p>
+          </div>
+        </article>
+
+        <article class="trap-card" id="trap-card-two" hidden>
+          <div class="trap-card-topline">
+            <span class="card-index">02</span>
+            <span class="card-type false-productivity">Disguised productivity</span>
+          </div>
+
+          <h3>“I should research this a little more before I start.”</h3>
+
+          <p>
+            <strong>Draft voice:</strong>
+            “I'm not avoiding it. I'm getting prepared.”
+          </p>
+
+          <div class="honest-layer">
+            <span>What may actually be happening</span>
+            <p>
+              Preparation can be useful, but it can also provide the feeling of
+              progress without the vulnerability of making something, submitting
+              something, practicing something, or simply beginning. The task feels
+              responsible because the detour looks productive.
+            </p>
+          </div>
+        </article>
+
+        <article class="trap-card" id="trap-card-three" hidden>
+          <div class="trap-card-topline">
+            <span class="card-index">03</span>
+            <span class="card-type false-productivity">Disguised interest</span>
+          </div>
+
+          <h3>“Wait, this other thing is genuinely fascinating.”</h3>
+
+          <p>
+            <strong>Draft voice:</strong>
+            “This is actually useful. I could learn something from it.”
+          </p>
+
+          <div class="honest-layer">
+            <span>What may actually be happening</span>
+            <p>
+              This one is tricky because the curiosity can be completely real.
+              You may genuinely enjoy the article, tutorial, idea, rabbit hole,
+              or side project. That doesn't make the interest fake. It simply means
+              a real curiosity can still become a very convenient route away from
+              the discomfort of your actual goal.
+            </p>
+          </div>
+        </article>
+
+        <article class="trap-card" id="trap-card-four" hidden>
+          <div class="trap-card-topline">
+            <span class="card-index">04</span>
+            <span class="card-type false-productivity">Disguised productivity</span>
+          </div>
+
+          <h3>“I should organize everything before I begin.”</h3>
+
+          <p>
+            <strong>Draft voice:</strong>
+            “Once the plan, folder, schedule, notes, and setup are perfect,
+            the real work will be easy.”
+          </p>
+
+          <div class="honest-layer">
+            <span>What may actually be happening</span>
+            <p>
+              Organizing creates order, and order can feel wonderfully safe.
+              But sometimes the setup becomes a substitute for the first imperfect
+              action. The brain gets the satisfaction of control while avoiding
+              the uncertainty that comes with actually doing the thing.
+            </p>
+          </div>
+        </article>
+
+        <article class="trap-card" id="trap-card-five" hidden>
+          <div class="trap-card-topline">
+            <span class="card-index">05</span>
+            <span class="card-type instant">Instant gratification</span>
+          </div>
+
+          <h3>“I'll relax for a little while, then I'll have more energy.”</h3>
+
+          <p>
+            <strong>Draft voice:</strong>
+            “I deserve a break first. I'll probably work better afterward.”
+          </p>
+
+          <div class="honest-layer">
+            <span>What may actually be happening</span>
+            <p>
+              Rest is real and necessary. The trap is using “rest” as an automatic
+              escape whenever starting feels uncomfortable. A short reward can
+              quietly turn into a much longer delay because your brain has learned
+              that avoidance feels better immediately.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. COMPOUNDING COST
+    ========================================================== -->
+    <section class="section-shell cost-section" id="cost" aria-labelledby="cost-title">
+      <div class="section-heading narrow">
+        <p class="eyebrow">03 · THE COMPOUNDING COST</p>
+
+        <h2 id="cost-title">Watch the loop repeat as time moves.</h2>
+
+        <p class="draft-tag">DRAFT COPY · REWRITE FOR YOUR OWN VOICE</p>
+      </div>
+
+      <div class="time-card">
+        <div class="slider-heading">
+          <div>
+            <span class="micro-label">TIME PASSING</span>
+            <strong id="time-label">Today</strong>
+          </div>
+
+          <span class="slider-value" id="slider-value">0%</span>
+        </div>
+
+        <label class="sr-only" for="time-slider">
+          Time passing from today to one year from now
+        </label>
+
+        <input
+          id="time-slider"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          aria-valuetext="Today">
+
+        <div class="slider-scale" aria-hidden="true">
+          <span>Today</span>
+          <span>3 months</span>
+          <span>6 months</span>
+          <span>9 months</span>
+          <span>1 year</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="metric-row">
+            <div class="metric-copy">
+              <span>Progress toward your goal</span>
+              <strong id="progress-percent">8%</strong>
+            </div>
+
+            <div class="metric-track" aria-hidden="true">
+              <div class="metric-fill progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-copy">
+              <span>Comfort loop cycles</span>
+              <strong id="loop-cycle-label">Cycle 1</strong>
+            </div>
+
+            <div class="metric-track" aria-hidden="true">
+              <div class="metric-fill loop-fill" id="loop-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="slider-caption" id="slider-caption" aria-live="polite">
+          <strong>Draft caption:</strong>
+          The numbers here are deliberately illustrative, not scientific measurements.
+          The point is the shape of the pattern: tiny goal progress alongside repeated
+          returns to what feels easier right now.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. HONEST EXPLANATION
+    ========================================================== -->
+    <section class="section-shell explanation-section" aria-labelledby="explanation-title">
+      <div class="section-heading narrow">
+        <p class="eyebrow">04 · THE HONEST EXPLANATION</p>
+        <h2 id="explanation-title">You are not arguing with a villain.</h2>
+        <p class="draft-tag">DRAFT COPY · REWRITE FOR YOUR OWN VOICE</p>
+      </div>
+
+      <div class="explanation-grid">
+
+        <article class="explanation-card">
+          <span class="explanation-number">01</span>
+          <h3>Your brain is built to care about now.</h3>
+          <p>
+            <strong>Draft paragraph:</strong>
+            Your brain does not naturally rank today's comfort below a reward that
+            might arrive months from now. Immediate relief is concrete. A meaningful
+            long-term goal can be abstract, uncertain, and uncomfortable in the
+            present moment. So when starting asks you to tolerate uncertainty, effort,
+            boredom, embarrassment, or the possibility of doing something badly,
+            avoidance can feel surprisingly sensible.
+          </p>
+        </article>
+
+        <article class="explanation-card">
+          <span class="explanation-number">02</span>
+          <h3>Distraction doesn't always look like distraction.</h3>
+          <p>
+            <strong>Draft paragraph:</strong>
+            The easiest traps are not always mindless scrolling. Sometimes they're
+            interesting books, useful videos, better systems, more research, cleaner
+            notes, fresh ideas, or fascinating side questions. Those things can be
+            genuinely valuable. That is exactly why they are difficult to recognize as
+            avoidance. The detour can contain real curiosity and still move you away
+            from the thing you said mattered.
+          </p>
+        </article>
+
+        <article class="explanation-card">
+          <span class="explanation-number">03</span>
+          <h3>The feeling of progress is not always progress.</h3>
+          <p>
+            <strong>Draft paragraph:</strong>
+            Planning can feel productive. Learning can feel productive. Organizing can
+            feel productive. Thinking intensely about doing something can even feel
+            productive. Sometimes they are. But the useful question is simpler:
+            “Did I take the next action the goal actually needs?” That question cuts
+            through a lot of comforting fog without requiring you to shame yourself.
+          </p>
+        </article>
+
+        <article class="explanation-card">
+          <span class="explanation-number">04</span>
+          <h3>Noticing the pattern is already a real step.</h3>
+          <p>
+            <strong>Draft paragraph:</strong>
+            The goal is not to become a person who never gets distracted. That is
+            unrealistic. The goal is to catch the moment when comfort starts wearing
+            the costume of something else. Once you can name the detour, you have a
+            little more choice. Sometimes the next move can be tiny: open the file,
+            write one sentence, practice for ten minutes, send the first draft, or
+            begin badly on purpose. The point is movement, not perfection.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. REFLECTION
+    ========================================================== -->
+    <section class="section-shell reflection-section" id="reflection" aria-labelledby="reflection-title">
+      <div class="reflection-shell">
+
+        <div class="section-heading">
+          <p class="eyebrow">05 · REFLECTION</p>
+
+          <h2 id="reflection-title">
+            Name the thing you have been quietly avoiding.
+          </h2>
+
+          <p class="reflection-intro">
+            <strong>Draft paragraph:</strong>
+            You do not need to make a grand promise here. Just name one thing
+            your goal currently needs from you. This page does not send your
+            response anywhere. What you type stays in this page session unless
+            you choose to save it somewhere yourself.
+          </p>
+
+          <p class="draft-tag">DRAFT COPY · REWRITE FOR YOUR OWN VOICE</p>
+        </div>
+
+        <form id="reflection-form" class="reflection-form">
+          <label for="goal-input">
+            What's one thing you've been putting off for your goal?
+          </label>
+
+          <span class="private-note">
+            Private reflection · nothing is sent anywhere by this page.
+          </span>
+
+          <textarea
+            id="goal-input"
+            name="goal"
+            rows="5"
+            maxlength="500"
+            placeholder="For example: finish the first draft, practice the skill, apply for the thing, make the call..."
+            autocomplete="off"
+            spellcheck="true"></textarea>
+
+          <div class="reflection-form-footer">
+            <span class="character-note" id="character-note">0 / 500</span>
+
+            <button class="primary-button" type="submit">
+              Name it
+            </button>
+          </div>
+
+          <div
+            class="reflection-response"
+            id="reflection-response"
+            role="status"
+            aria-live="polite"
+            hidden>
+            <span class="response-kicker">FIXED PROMPT · SAME FOR EVERYONE</span>
+            <p>
+              Named. That's the first honest moment. Now, not tomorrow and not
+              after one more thing: can you give it ten minutes right now?
+            </p>
+          </div>
+        </form>
+
+        <div class="check-in-card">
+          <div>
+            <span class="check-in-kicker">OPTIONAL · DEVICE-LOCAL</span>
+            <h3>Show up for one small win.</h3>
+            <p>
+              This personal tally is saved only on this device using your browser's
+              local storage. It is not an account, not a shared database, and not
+              sent anywhere.
+            </p>
+          </div>
+
+          <div class="streak-display" aria-live="polite">
+            <strong id="streak-count">0</strong>
+            <span>day streak</span>
+          </div>
+
+          <button class="secondary-button" id="check-in-button" type="button">
+            I showed up today
+          </button>
+
+          <p class="streak-message" id="streak-message">
+            A tiny start still counts.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Built as a static, browser-only experience. No accounts, analytics,
+      external scripts, or form transmission.
+    </p>
+  </footer>
+
+</body>
+          </html>
