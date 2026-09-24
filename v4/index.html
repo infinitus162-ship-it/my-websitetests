@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#070a10">
+<meta name="description" content="An explorable explanation of the two disguises your brain uses to keep you away from your own goal: instant relief, and distractions that feel interesting or productive.">
+<title>The Warm Detour — why you keep not doing the thing</title>
+<!--
+  DRAFT COPY NOTICE
+  Every sentence on this page is first-pass placeholder copy, written to be
+  rewritten in the site owner's own voice. Nothing here is a claim about a
+  real person, business, product, statistic or study.
+  No external fonts, icons, images, analytics or network requests are used.
+-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to the content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true"></div>
+
+<div class="scroll-progress" aria-hidden="true">
+  <span id="scrollBar"></span>
+</div>
+
+<nav class="rail" id="rail" aria-label="Sections of this page">
+  <ol>
+    <li><a href="#opening" data-rail="opening"><span class="rail-dot"></span><span class="rail-label">Opening</span></a></li>
+    <li><a href="#traps" data-rail="traps"><span class="rail-dot"></span><span class="rail-label">The two traps</span></a></li>
+    <li><a href="#cost" data-rail="cost"><span class="rail-dot"></span><span class="rail-label">The compounding cost</span></a></li>
+    <li><a href="#honest" data-rail="honest"><span class="rail-dot"></span><span class="rail-label">The honest explanation</span></a></li>
+    <li><a href="#reflect" data-rail="reflect"><span class="rail-dot"></span><span class="rail-label">Reflection</span></a></li>
+  </ol>
+</nav>
+
+<main id="main">
+
+  <!-- ============ 1. OPENING ============ -->
+  <header class="hero section" id="opening" aria-labelledby="hero-title">
+    <canvas id="field" aria-hidden="true"></canvas>
+
+    <div class="hero-orb" aria-hidden="true">
+      <span class="orb-core"></span>
+      <span class="orb-halo"></span>
+      <span class="orb-ring"></span>
+      <span class="orb-reach"></span>
+    </div>
+
+    <div class="hero-inner wrap">
+      <p class="eyebrow reveal">An explorable explanation &middot; a short guided scroll &middot; nothing is sent anywhere</p>
+
+      <!-- DRAFT COPY: headline -->
+      <h1 class="hero-title reveal" id="hero-title">
+        <span class="line">You have a goal.</span>
+        <span class="line">You know exactly</span>
+        <span class="line">what it needs.</span>
+        <span class="line line--soft">And somehow, you keep</span>
+        <span class="line line--soft line--mark"><em>not doing it.</em></span>
+      </h1>
+
+      <!-- DRAFT COPY: opening paragraph -->
+      <div class="hero-body reveal">
+        <p class="lede">
+          You&rsquo;re not broken. Your brain is just doing its job &mdash;
+          and its job was never to help you grow. It was built to keep you safe,
+          fed and comfortable. Growth was not on the list.
+        </p>
+        <p class="hero-note">
+          Below: two paths that leave from the same place, and five glowing points
+          where the warm one quietly takes over. Scroll slowly. Tap the points.
+        </p>
+      </div>
+
+      <a class="scroll-cue reveal" href="#traps">
+        <span class="cue-text">Begin</span>
+        <span class="cue-line" aria-hidden="true"></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ 2. THE TWO TRAPS ============ -->
+  <section class="section traps" id="traps" aria-labelledby="traps-title">
+    <div class="wrap">
+      <p class="eyebrow reveal">Section one &middot; the interactive part</p>
+      <h2 class="section-title reveal" id="traps-title">The detour never<br>announces itself.</h2>
+      <!-- DRAFT COPY -->
+      <p class="section-intro reveal">
+        Two paths start in exactly the same spot &mdash; right here, right now.
+        One is dim, direct, and asks something of you. The other is warm,
+        interesting, and asks nothing at all. It doesn&rsquo;t look like avoidance.
+        That&rsquo;s the whole trick.
+      </p>
+
+      <div class="legend reveal">
+        <p class="legend-item legend-item--teal">
+          <span class="legend-swatch" aria-hidden="true"></span>
+          What your goal actually needs
+        </p>
+        <p class="legend-item legend-item--amber">
+          <span class="legend-swatch" aria-hidden="true"></span>
+          Where your brain wants to take you
+        </p>
+      </div>
+
+      <div class="traps-grid">
+        <div class="diagram-shell reveal">
+          <div class="diagram" id="diagram">
+            <svg id="paths" viewBox="0 0 1000 560" role="img"
+                 aria-label="A diagram of two paths leaving the same starting point. A dim teal path rises almost directly toward a small distant glow labelled 'the goal'. A brighter amber path winds back and forth and fades out before it ever arrives. Five glowing points sit along the amber path; each one can be opened.">
+              <defs>
+                <linearGradient id="fadeAmber" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#ff9b45" stop-opacity="0.95"></stop>
+                  <stop offset="62%" stop-color="#ffab5c" stop-opacity="0.75"></stop>
+                  <stop offset="100%" stop-color="#ffc98a" stop-opacity="0"></stop>
+                </linearGradient>
+                <linearGradient id="fadeTeal" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#4fd0c4" stop-opacity="0.35"></stop>
+                  <stop offset="100%" stop-color="#8ff2e6" stop-opacity="0.95"></stop>
+                </linearGradient>
+                <radialGradient id="goalGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#dffff9" stop-opacity="0.95"></stop>
+                  <stop offset="28%" stop-color="#63e0d1" stop-opacity="0.55"></stop>
+                  <stop offset="100%" stop-color="#63e0d1" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="deadGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffb469" stop-opacity="0.35"></stop>
+                  <stop offset="100%" stop-color="#ffb469" stop-opacity="0"></stop>
+                </radialGradient>
+                <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="9" result="b"></feGaussianBlur>
+                  <feMerge>
+                    <feMergeNode in="b"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <g id="goalGroup">
+                <circle id="goalHalo" cx="890" cy="140" r="86" fill="url(#goalGlow)"></circle>
+                <circle id="goalCore" cx="890" cy="140" r="5" fill="#eafffb"></circle>
+                <circle id="goalPulse" cx="890" cy="140" r="16" fill="none" stroke="#7fe9dc" stroke-opacity="0.45"></circle>
+              </g>
+              <circle id="deadEnd" cx="975" cy="404" r="70" fill="url(#deadGlow)"></circle>
+
+              <path id="pathStraight" class="path-line path-line--teal" d="M78 470 C 300 420, 560 300, 890 140"
+                    fill="none" stroke="url(#fadeTeal)" stroke-width="2.5" stroke-linecap="round"></path>
+              <path id="pathStraightGhost" class="path-dash" d="M78 470 C 300 420, 560 300, 890 140"
+                    fill="none" stroke="#9df3e8" stroke-opacity="0.35" stroke-width="1"
+                    stroke-dasharray="2 12" stroke-linecap="round"></path>
+
+              <path id="pathWindingGlow" class="path-glow" d="" fill="none" stroke="#ff9b45"
+                    stroke-opacity="0.16" stroke-width="16" stroke-linecap="round" filter="url(#soft)"></path>
+              <path id="pathWinding" class="path-line path-line--amber" d="" fill="none"
+                    stroke="url(#fadeAmber)" stroke-width="3" stroke-linecap="round"></path>
+
+              <g id="originGroup">
+                <circle id="originRing" cx="78" cy="470" r="13" fill="none" stroke="#cfe0f2" stroke-opacity="0.4"></circle>
+                <circle id="originCore" cx="78" cy="470" r="4.5" fill="#e6eef8"></circle>
+              </g>
+            </svg>
+
+            <div class="diagram-labels" id="diagramLabels">
+              <span class="dlabel dlabel--origin" id="labelOrigin">You, right now</span>
+              <span class="dlabel dlabel--goal" id="labelGoal">The goal &mdash; present, distant</span>
+              <span class="dlabel dlabel--warm" id="labelWarm">Never quite arrives</span>
+              <span class="dlabel dlabel--tealpath" id="labelTeal">Short, dull, direct</span>
+            </div>
+
+            <div class="bubbles" id="bubbles"></div>
+          </div>
+          <p class="diagram-help">
+            Tap a glowing point on the warm path. Keyboard: <kbd>Tab</kbd> to move between points,
+            <kbd>Enter</kbd> or <kbd>Space</kbd> to open one.
+          </p>
+        </div>
+
+        <div class="reader">
+          <p class="reader-hint" id="readerHint">
+            Five points are glowing on the warm path. Each one is a trap wearing
+            a very convincing disguise &mdash; open one to see both layers: what
+            your brain says, and what is actually happening.
+          </p>
+
+          <div class="card-stage" id="cardStage" role="region" aria-live="polite" aria-label="Explanation of the selected trap">
+
+            <!-- DRAFT COPY: trap cards. data-type + data-label feed the diagram bubbles. -->
+            <article class="trap-card" id="trap-1" data-type="Instant relief" data-label="Just after this" hidden>
+              <header class="trap-head">
+                <span class="trap-index">Trap 01</span>
+                <span class="trap-tag">Instant relief</span>
+              </header>
+              <h3 class="trap-title">Just after this.</h3>
+              <p class="trap-layer-label">Layer one &mdash; the voice in your head</p>
+              <blockquote class="trap-voice">
+                &ldquo;I&rsquo;ll start right after this episode. After this scroll. I need to unwind
+                first &mdash; I can&rsquo;t begin from this state.&rdquo;
+              </blockquote>
+              <p class="trap-layer-label">Layer two &mdash; what is actually happening</p>
+              <p class="trap-truth">
+                This is the oldest trade your brain knows: relief now, cost later, paid by
+                someone it doesn&rsquo;t really believe exists (future you). Relief is instant and
+                guaranteed; starting is delayed and uncertain &mdash; so the vote always goes to
+                relief. And notice the missing piece: &ldquo;after this&rdquo; has no trigger attached
+                to it. That&rsquo;s why &ldquo;after this&rdquo; so reliably turns into three hours.
+              </p>
+            </article>
+
+            <article class="trap-card" id="trap-2" data-type="Instant relief" data-label="I've earned it" hidden>
+              <header class="trap-head">
+                <span class="trap-index">Trap 02</span>
+                <span class="trap-tag">Instant relief</span>
+              </header>
+              <h3 class="trap-title">I&rsquo;ve earned a break.</h3>
+              <p class="trap-layer-label">Layer one &mdash; the voice in your head</p>
+              <blockquote class="trap-voice">
+                &ldquo;I&rsquo;ve been stressed all week. I deserve to feel good for once.
+                Discipline can start Monday, when I&rsquo;m fresh.&rdquo;
+              </blockquote>
+              <p class="trap-layer-label">Layer two &mdash; what is actually happening</p>
+              <p class="trap-truth">
+                Your brain is quietly counting the <em>feeling</em> of being behind as work
+                already done. Stress is genuinely tiring, so rest reads as deserved &mdash; and
+                often it is. The problem isn&rsquo;t the rest. It&rsquo;s the deal wrapped around it:
+                rest with no end time isn&rsquo;t rest, it&rsquo;s postponement in comfortable clothes.
+                A break you can name the length of tends to end. A break you&rsquo;ve earned tends
+                to keep going.
+              </p>
+            </article>
+
+            <article class="trap-card" id="trap-3" data-type="False productivity" data-label="One more thing first" hidden>
+              <header class="trap-head">
+                <span class="trap-index">Trap 03</span>
+                <span class="trap-tag">Disguised as productive</span>
+              </header>
+              <h3 class="trap-title">I should research this more first.</h3>
+              <p class="trap-layer-label">Layer one &mdash; the voice in your head</p>
+              <blockquote class="trap-voice">
+                &ldquo;Let me read two more articles, watch one more walkthrough, compare the
+                options properly. I don&rsquo;t want to start it wrong.&rdquo;
+              </blockquote>
+              <p class="trap-layer-label">Layer two &mdash; what is actually happening</p>
+              <p class="trap-truth">
+                This is your brain handing you the feeling of progress without the discomfort of
+                real action &mdash; and it feels responsible because it&rsquo;s disguised as preparation.
+                Research produces no draft, no attempt and no feedback, which means it cannot be
+                judged. That&rsquo;s exactly what makes it soothing. Preparation has a tell: it keeps
+                extending, and nothing gets worse, because nothing gets made.
+              </p>
+            </article>
+
+            <article class="trap-card" id="trap-4" data-type="Disguised interest" data-label="This is fascinating" hidden>
+              <header class="trap-head">
+                <span class="trap-index">Trap 04</span>
+                <span class="trap-tag">Disguised as interesting</span>
+              </header>
+              <h3 class="trap-title">This other thing is genuinely interesting right now.</h3>
+              <p class="trap-layer-label">Layer one &mdash; the voice in your head</p>
+              <blockquote class="trap-voice">
+                &ldquo;I keep landing on this completely different topic and it&rsquo;s fascinating.
+                I&rsquo;m clearly meant to explore it. This is curiosity, not laziness.&rdquo;
+              </blockquote>
+              <p class="trap-layer-label">Layer two &mdash; what is actually happening</p>
+              <p class="trap-truth">
+                You&rsquo;re right that the interest is real &mdash; that&rsquo;s what makes this the
+                hardest trap to catch. It isn&rsquo;t numb scrolling; it&rsquo;s an awake, engaged mind
+                enjoying itself, which is far harder to argue with. So don&rsquo;t look at the feeling.
+                Look at the timing. Ordinary curiosity turns up at random. Avoidance-curiosity turns
+                up almost exactly when the real work is about to become unclear, difficult, or
+                something a person could look at and judge.
+              </p>
+            </article>
+
+            <article class="trap-card" id="trap-5" data-type="False productivity" data-label="Let me set it up" hidden>
+              <header class="trap-head">
+                <span class="trap-index">Trap 05</span>
+                <span class="trap-tag">Disguised as productive</span>
+              </header>
+              <h3 class="trap-title">Let me get properly organised first.</h3>
+              <p class="trap-layer-label">Layer one &mdash; the voice in your head</p>
+              <blockquote class="trap-voice">
+                &ldquo;New notebook, clean desk, better app, one tidy system &mdash; then starting
+                will be easy and I&rsquo;ll actually keep it up.&rdquo;
+              </blockquote>
+              <p class="trap-layer-label">Layer two &mdash; what is actually happening</p>
+              <p class="trap-truth">
+                You are optimising the container instead of filling it. Setups are finishable,
+                safe and instantly rewarding; the goal is none of those three things, and that
+                imbalance is the entire pull. A system built before there is anything to put inside
+                it is one of the most convincing ways to spend a whole week feeling industrious
+                while the actual work stays exactly where it was.
+              </p>
+            </article>
+          </div>
+
+          <div class="reader-nav" id="readerNav" hidden>
+            <button type="button" class="btn btn--ghost" id="prevTrap">Previous trap</button>
+            <span class="reader-count" id="readerCount" aria-hidden="true"></span>
+            <button type="button" class="btn btn--ghost" id="nextTrap">Next trap</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. THE COMPOUNDING COST ============ -->
+  <section class="section cost" id="cost" aria-labelledby="cost-title">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow reveal">Section two &middot; drag the slider</p>
+      <h2 class="section-title reveal" id="cost-title">The cost isn&rsquo;t dramatic.<br>It&rsquo;s gradual.</h2>
+      <!-- DRAFT COPY -->
+      <p class="section-intro reveal">
+        Nothing collapses. Nothing gets worse in a way you could point at.
+        Time simply passes, and one bar moves much less than you&rsquo;d expect
+        while the other keeps starting over.
+      </p>
+
+      <div class="cost-panel reveal">
+        <div class="slider-block">
+          <div class="slider-top">
+            <label class="field-label" for="timeSlider">Time passing</label>
+            <p class="time-readout" id="timeReadout" aria-live="off">Day 1 &mdash; today</p>
+          </div>
+          <input type="range" id="timeSlider" min="0" max="365" step="1" value="0"
+                 aria-describedby="timeHelp" aria-valuetext="Day 1, today">
+          <p class="slider-help" id="timeHelp">
+            Drag from today to one year from now. Both bars below respond as you move.
+          </p>
+          <div class="ticks" id="ticks">
+            <button type="button" data-day="0">Today</button>
+            <button type="button" data-day="30">1 month</button>
+            <button type="button" data-day="91">3 months</button>
+            <button type="button" data-day="182">6 months</button>
+            <button type="button" data-day="365">1 year</button>
+          </div>
+          <div class="play-row">
+            <button type="button" class="btn btn--ghost" id="playYear">Watch a year pass</button>
+            <span class="play-note" id="playNote">Runs for a few seconds. Touch the slider any time to take over.</span>
+          </div>
+        </div>
+
+        <div class="bars">
+          <div class="bar-row">
+            <div class="bar-head">
+              <span class="bar-name bar-name--teal">Progress toward your goal</span>
+              <span class="bar-status" id="progressStatus">Barely moved</span>
+            </div>
+            <div class="bar-track">
+              <span class="bar-fill bar-fill--teal" id="progressFill"></span>
+              <span class="bar-grain" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="bar-row">
+            <div class="bar-head">
+              <span class="bar-name bar-name--amber">Comfort loop cycles</span>
+              <span class="bar-status" id="loopStatus">Not started yet</span>
+            </div>
+            <div class="bar-track">
+              <span class="bar-fill bar-fill--amber" id="loopFill"></span>
+              <span class="bar-grain" aria-hidden="true"></span>
+            </div>
+            <p class="bar-meta" id="loopMeta">Loops completed: 0</p>
+          </div>
+        </div>
+
+        <!-- DRAFT COPY: slider caption -->
+        <p class="cost-caption">
+          This is a picture, not a measurement. The teal bar creeps because deferral keeps the real
+          work at roughly the same distance no matter how much time goes past. The amber bar keeps
+          filling and emptying because the loop doesn&rsquo;t accumulate &mdash; it restarts. A year
+          of loops leaves you holding a year of loops, and the goal sits about where it was.
+          Except now it also has a year attached to it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. THE HONEST EXPLANATION ============ -->
+  <section class="section honest" id="honest" aria-labelledby="honest-title">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow reveal">Section three &middot; in plain words</p>
+      <h2 class="section-title reveal" id="honest-title">What your brain is<br>actually protecting.</h2>
+
+      <div class="prose">
+        <!-- DRAFT COPY: paragraph 1 -->
+        <p class="reveal">
+          Here is the pattern you just walked through. Your brain was not designed to help you
+          change careers, write the book, get strong, or build the thing you keep describing to
+          people. It was designed to keep you alive &mdash; and it does that by steering you toward
+          whatever feels safe, familiar and rewarding <em>right now</em>, and away from whatever
+          feels effortful, uncertain or exposing. Almost every meaningful goal you have lives
+          entirely in the second category. So the steering is never going to stop. That is not a
+          defect in you. It is the default setting in everyone.
+        </p>
+
+        <!-- DRAFT COPY: paragraph 2 -->
+        <p class="reveal">
+          The clever part is that your brain almost never says &ldquo;avoid this.&rdquo; It says
+          something far more reasonable. It says <em>rest first</em>. It says <em>prepare
+          properly</em>. It says <em>this other thing is fascinating and you should follow your
+          curiosity</em>. Those sentences are true-sounding, and some of them are simply true.
+          The rest is real. The preparation is real. The curiosity is real. That is precisely why
+          the detour works so well &mdash; it is built out of genuine materials, not cheap ones.
+        </p>
+
+        <blockquote class="pull-quote reveal">
+          <p>The detour doesn&rsquo;t feel like a detour.<br>That is the entire mechanism.</p>
+        </blockquote>
+
+        <!-- DRAFT COPY: paragraph 3 -->
+        <p class="reveal">
+          Which means the most convincing version is never the phone. It&rsquo;s the thing that
+          looks like work: the research, the planning, the reorganising, the third course you are
+          halfway through, the notebook you bought for it. These keep your hands busy and your
+          conscience quiet, and they never produce the one thing that would tell you the truth
+          &mdash; an attempt that somebody could look at. Comfortable avoidance dresses extremely
+          well. It owns a lanyard.
+        </p>
+
+        <!-- DRAFT COPY: paragraph 4, the reframe -->
+        <p class="reveal">
+          So here is the honest reframe, and it is the only one this page is going to offer.
+          Noticing the pattern <em>is</em> the first real step. Not motivation &mdash; that comes
+          and goes and takes orders from your mood. Not the perfect Monday. Just seeing the warm
+          path for what it is, mid-sentence, while it is still talking. You cannot delete the
+          impulse; nobody can. But the moment you can name it, it stops being the weather and
+          becomes a thing you are watching &mdash; and a thing you are watching is a thing you can
+          decline, once, for ten minutes.
+        </p>
+
+        <aside class="honesty-note reveal">
+          <p>
+            <strong>A note on honesty:</strong> there are no citations, statistics, studies or
+            clinical claims on this page, and none have been invented to make it sound weightier.
+            It is a description of a common human pattern. Check it against your own week and keep
+            whatever fits.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. THE REFLECTION PROMPT ============ -->
+  <section class="section reflect" id="reflect" aria-labelledby="reflect-title">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow reveal">Section four &middot; your turn, privately</p>
+      <h2 class="section-title reveal" id="reflect-title">One last thing,<br>and it&rsquo;s small.</h2>
+
+      <div class="reflect-panel reveal">
+        <form id="reflectForm" novalidate>
+          <label class="field-label" for="goalInput">
+            What&rsquo;s one thing you&rsquo;ve been putting off for your goal?
+          </label>
+          <p class="field-note" id="goalNote">
+            A private reflection. Nothing is sent anywhere, nothing is stored, and no one sees this
+            but you. Typing it is the point &mdash; not what happens to it afterwards.
+          </p>
+          <div class="field-row">
+            <input type="text" id="goalInput" name="goal" autocomplete="off" maxlength="140"
+                   placeholder="e.g. send the first rough draft" aria-describedby="goalNote goalError">
+            <button type="submit" class="btn btn--teal" id="nameBtn">Name it</button>
+          </div>
+          <p class="field-error" id="goalError" role="alert" hidden>
+            Type anything at all &mdash; one word is enough.
+          </p>
+        </form>
+
+        <div class="named-card" id="namedCard" hidden>
+          <p class="named-label">You named it</p>
+          <p class="named-text" id="namedText"></p>
+          <button type="button" class="btn btn--ghost btn--small" id="editAnswer">Change my answer</button>
+        </div>
+
+        <div class="fixed-reply" id="fixedReply" hidden aria-live="polite">
+          <p class="reply-flag">The same reply for everyone &mdash; a prompt, not a reading of your words.</p>
+          <!-- DRAFT COPY: fixed closing response -->
+          <p class="reply-text">
+            Named. That&rsquo;s the first honest moment. Now &mdash; not tomorrow, not after one more
+            thing &mdash; can you give it ten minutes right now?
+          </p>
+          <p class="reply-sub">
+            Ten minutes is small enough that the warm path has no argument against it. You don&rsquo;t
+            have to finish. You only have to start while the sentence above is still on your screen.
+          </p>
+        </div>
+      </div>
+
+      <div class="tally reveal" id="tally">
+        <div class="tally-head">
+          <h3 class="tally-title">Optional: keep a tally</h3>
+          <p class="tally-note">Your personal tally, saved only on this device.</p>
+        </div>
+
+        <p class="tally-count">
+          <span class="tally-number" id="tallyNumber">0</span>
+          <span class="tally-unit" id="tallyUnit">days marked</span>
+        </p>
+
+        <div class="tally-dots" id="tallyDots" aria-hidden="true"></div>
+        <p class="tally-dots-label">Your last 14 days, on this device</p>
+
+        <p class="tally-line" id="tallyLine" role="status">
+          Nothing marked yet. The button below is one tap, once a day, for the days you showed up
+          &mdash; including the days it was only ten minutes.
+        </p>
+
+        <div class="tally-actions">
+          <button type="button" class="btn btn--amber" id="showUpBtn">I showed up today</button>
+          <button type="button" class="btn btn--ghost btn--small" id="resetTally">Reset tally</button>
+        </div>
+
+        <p class="tally-fineprint">
+          This is not an account and it isn&rsquo;t shared or backed up anywhere. It lives in this
+          browser&rsquo;s local storage on this device, so clearing your browser data will erase it.
+        </p>
+      </div>
+
+      <p class="closing-line reveal">
+        <!-- DRAFT COPY -->
+        The warm path will still be there tomorrow, and it will still sound reasonable.
+        That&rsquo;s fine. You know what it sounds like now.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-note">
+      <strong>Draft copy.</strong> All wording on this page is placeholder text written for a site
+      owner to rewrite in their own voice. No real names, testimonials, clients, awards, prices or
+      contact details appear anywhere, because none exist.
+    </p>
+    <p class="footer-note">
+      <strong>No tracking.</strong> This page loads no external fonts, icons, images, scripts or
+      analytics, and makes no requests to any server. Every visual is built from CSS, inline SVG and
+      a small canvas. The only thing it remembers is your optional tally, in this browser only.
+    </p>
+  </div>
+</footer>
+
+<noscript>
+  <p class="noscript-note">
+    This page works without JavaScript for reading, but the glowing points on the path diagram, the
+    time slider and the tally need JavaScript enabled to respond.
+  </p>
+</noscript>
+
+<script type="module" src="app.js"></script>
+<script>
+  /* Small safety net, not a feature: browsers refuse to run module scripts when a
+     page is opened straight from disk (file://). If that happens, load the very
+     same app.js as an ordinary script instead, so nothing silently breaks.
+     On GitHub Pages (or any web server) this never does anything. */
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      if (window.__warmDetourReady) return;
+      var s = document.createElement('script');
+      s.src = 'app.js';
+      document.body.appendChild(s);
+    }, 400);
+  });
+</script>
+</body>
+</html>
+ 
