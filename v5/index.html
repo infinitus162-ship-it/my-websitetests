@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Comfortable Detour — Why You Keep Not Doing the Thing</title>
+  <meta name="description" content="A short interactive explanation of how your brain quietly steers you away from your real goals — and what to do about it.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Decorative drifting particles (drawn by app.js). Hidden from screen readers. -->
+  <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ============================================================
+         SECTION 1 — HERO
+         DRAFT COPY: rewrite the headline and paragraph in your own voice.
+         ============================================================ -->
+    <header class="hero" id="top">
+      <div class="goal-orb" aria-hidden="true">
+        <span class="goal-orb__halo"></span>
+        <span class="goal-orb__core"></span>
+      </div>
+
+      <div class="hero__text">
+        <p class="eyebrow">An explorable explanation</p>
+        <h1 class="hero__title">
+          You have a goal. You know what it needs.
+          <span class="hero__title-soft">And somehow, you keep not doing it.</span>
+        </h1>
+        <p class="hero__lede">
+          You're not broken. You're not lazy. Your brain is just doing its job —
+          and its job isn't to help you grow. It's to keep you comfortable.
+          Let's look at how it does that, gently and honestly.
+        </p>
+      </div>
+
+      <a class="scroll-cue" href="#traps">
+        <span class="scroll-cue__label">See how it works</span>
+        <span class="scroll-cue__line" aria-hidden="true"></span>
+      </a>
+    </header>
+
+    <!-- ============================================================
+         SECTION 2 — THE TWO TRAPS
+         Bubble texts live in app.js (the TRAPS list) — marked DRAFT there.
+         ============================================================ -->
+    <section class="section traps reveal" id="traps" aria-labelledby="traps-title">
+      <div class="section__intro">
+        <p class="eyebrow">Part one</p>
+        <h2 id="traps-title">Two paths, one goal</h2>
+        <!-- DRAFT COPY -->
+        <p>
+          One path goes straight to your goal. It's quiet, a little dim, and honestly a bit uncomfortable.
+          The other path glows. It winds. It's full of things that feel good, or feel <em>useful</em>.
+        </p>
+        <p class="hint">Tap a glowing bubble to hear what your brain says — and what's really going on.</p>
+      </div>
+
+      <ul class="legend" aria-label="Map legend">
+        <li class="legend__item legend__item--goal"><span class="legend__swatch" aria-hidden="true"></span>What your goal actually needs</li>
+        <li class="legend__item legend__item--trap"><span class="legend__swatch" aria-hidden="true"></span>Where your brain wants to take you</li>
+      </ul>
+
+      <div class="map" id="map">
+        <svg class="map__svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="goalGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#bff5f1" stop-opacity="1"/>
+              <stop offset="35%" stop-color="#5fd4d0" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#5fd4d0" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="startGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e8e6e1" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#e8e6e1" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
+          </defs>
+
+          <!-- The goal -->
+          <circle class="map__goal-halo" cx="200" cy="50" r="46" fill="url(#goalGlow)"/>
+          <circle cx="200" cy="50" r="9" fill="#dffaf7"/>
+          <text class="map__label map__label--goal" x="200" y="112" text-anchor="middle">your goal</text>
+
+          <!-- Straight, calm, dim path -->
+          <line class="map__straight" x1="200" y1="560" x2="200" y2="66"/>
+
+          <!-- Winding, glowing path (glow layer + main layer) -->
+          <path id="windingGlow" class="map__winding-glow"
+            d="M200 560 C 330 555, 365 488, 300 450 C 238 414, 78 440, 68 360 C 58 282, 252 302, 322 250 C 392 198, 330 122, 250 140 C 170 158, 118 230, 150 282 C 176 324, 234 306, 226 266"
+            filter="url(#softBlur)"/>
+          <path id="windingPath" class="map__winding"
+            d="M200 560 C 330 555, 365 488, 300 450 C 238 414, 78 440, 68 360 C 58 282, 252 302, 322 250 C 392 198, 330 122, 250 140 C 170 158, 118 230, 150 282 C 176 324, 234 306, 226 266"/>
+
+          <!-- Where you are now -->
+          <circle cx="200" cy="560" r="22" fill="url(#startGlow)" opacity="0.5"/>
+          <circle cx="200" cy="560" r="6" fill="#e8e6e1"/>
+          <text class="map__label" x="200" y="590" text-anchor="middle">you, today</text>
+        </svg>
+
+        <!-- Bubbles are real <button>s, positioned along the winding path by app.js -->
+        <div class="map__bubbles" id="bubbles"></div>
+      </div>
+
+      <p class="traps__progress" id="trapsProgress" aria-live="polite">0 of 5 traps explored</p>
+
+      <!-- The expanded card for whichever bubble is selected -->
+      <div class="trap-card" id="trapCard" hidden tabindex="-1" aria-labelledby="trapCardVoice">
+        <p class="trap-card__type" id="trapCardType"></p>
+        <div class="trap-card__layer trap-card__layer--voice">
+          <p class="trap-card__layer-label">What your brain says</p>
+          <p class="trap-card__voice" id="trapCardVoice"></p>
+        </div>
+        <button type="button" class="btn btn--ghost trap-card__reveal" id="trapCardReveal" aria-expanded="false" aria-controls="trapCardTruth">
+          What's really happening?
+        </button>
+        <div class="trap-card__layer trap-card__layer--truth" id="trapCardTruth" hidden>
+          <p class="trap-card__layer-label">What's actually going on</p>
+          <p class="trap-card__truth" id="trapCardTruthText"></p>
+        </div>
+        <button type="button" class="trap-card__close" id="trapCardClose" aria-label="Close this card">Close</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — THE COMPOUNDING COST
+         DRAFT COPY: the caption and the changing lines (in app.js).
+         ============================================================ -->
+    <section class="section cost reveal" id="cost" aria-labelledby="cost-title">
+      <div class="section__intro">
+        <p class="eyebrow">Part two</p>
+        <h2 id="cost-title">What the detour costs over time</h2>
+        <p>Drag the slider and watch what happens when "later" keeps being the plan.</p>
+      </div>
+
+      <div class="cost__panel">
+        <div class="slider">
+          <div class="slider__head">
+            <label for="timeSlider" class="slider__label">Time passing</label>
+            <output class="slider__value" id="timeValue" for="timeSlider">Today</output>
+          </div>
+          <input type="range" id="timeSlider" class="slider__input" min="0" max="365" step="1" value="0" aria-valuetext="Today">
+          <div class="slider__ends" aria-hidden="true">
+            <span>Today</span>
+            <span>One year from now</span>
+          </div>
+        </div>
+
+        <div class="bar bar--goal">
+          <div class="bar__head">
+            <span class="bar__name">Progress toward your goal</span>
+            <span class="bar__readout" id="progressReadout">barely started</span>
+          </div>
+          <div class="bar__track" aria-hidden="true"><div class="bar__fill" id="progressFill"></div></div>
+        </div>
+
+        <div class="bar bar--trap">
+          <div class="bar__head">
+            <span class="bar__name">Comfort loop cycles</span>
+            <span class="bar__readout" id="loopReadout">0 loops</span>
+          </div>
+          <div class="bar__track" aria-hidden="true"><div class="bar__fill" id="loopFill"></div></div>
+        </div>
+
+        <p class="cost__live" id="costLive" aria-live="polite">Move the slider to let time pass.</p>
+
+        <!-- DRAFT COPY -->
+        <p class="cost__caption">
+          Nothing dramatic happens. That's the point. No single day feels like a loss —
+          the loop just quietly fills, empties, and fills again, while the thing you actually care about
+          stays almost exactly where it was. <span class="muted">(An illustration, not real data.)</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — THE HONEST EXPLANATION
+         DRAFT COPY: rewrite these four paragraphs in your own voice.
+         ============================================================ -->
+    <section class="section explain reveal" id="explain" aria-labelledby="explain-title">
+      <p class="eyebrow">Part three</p>
+      <h2 id="explain-title">So, what's actually going on?</h2>
+      <div class="explain__body">
+        <p>
+          Here's the honest version. Your brain wasn't built to help you finish a portfolio,
+          learn a language, or start a business. It was built to keep you safe and keep your energy
+          for right now. Anything uncertain, effortful, or slow to pay off gets quietly flagged as
+          <em>"maybe not today."</em> That's not a flaw in you. It's an old system doing exactly what it was designed to do.
+        </p>
+        <p>
+          The tricky part is that it rarely says <em>"avoid this."</em> It offers you something else instead —
+          a quick hit of something pleasant, or something that genuinely sparks your curiosity.
+          And because that curiosity is <strong>real</strong>, it doesn't feel like avoidance. Reading about your goal,
+          reorganising your setup, falling into a fascinating side topic… it all feels close enough to progress
+          that you'd never think to question it.
+        </p>
+        <p>
+          That's why willpower speeches don't really help. You're not choosing laziness over effort —
+          you're choosing something that feels good <em>and</em> reasonable over something that feels uncomfortable
+          and uncertain. Anyone would. The detour is designed to look like the road.
+        </p>
+        <p class="explain__reframe">
+          But here's the reframe: the moment you can say <em>"oh — this is the detour,"</em> it loses a little of its grip.
+          Noticing isn't a consolation prize. It's the first real step. You just took it by reading this far.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — THE REFLECTION PROMPT
+         Nothing typed here is sent or saved anywhere.
+         ============================================================ -->
+    <section class="section reflect reveal" id="reflect" aria-labelledby="reflect-title">
+      <p class="eyebrow">Your turn</p>
+      <h2 id="reflect-title">Name the thing</h2>
+
+      <form class="reflect__form" id="reflectForm" novalidate>
+        <label for="avoidedGoal" class="reflect__label">What's one thing you've been putting off for your goal?</label>
+        <p class="reflect__privacy" id="reflectPrivacy">
+          This is just for you. Nothing you type is sent anywhere or saved — it stays on this screen
+          and disappears when you close or reload the page.
+        </p>
+        <textarea id="avoidedGoal" name="avoidedGoal" rows="3" maxlength="280"
+          aria-describedby="reflectPrivacy reflectError"
+          placeholder="e.g. Writing the first page of my application"></textarea>
+        <p class="reflect__error" id="reflectError" aria-live="polite"></p>
+        <button type="submit" class="btn btn--primary">Name it</button>
+      </form>
+
+      <div class="reflect__response" id="reflectResponse" hidden tabindex="-1">
+        <p class="reflect__named-label">You named:</p>
+        <blockquote class="reflect__named" id="reflectNamed"></blockquote>
+
+        <!-- DRAFT COPY: this fixed response is the same for everyone. -->
+        <p class="reflect__nudge">
+          Named. That's the first honest moment.
+          Now — not tomorrow, not after one more thing — can you give it ten minutes right now?
+        </p>
+        <p class="reflect__note muted">
+          This is the same note everyone sees. It's a prompt, not a reading of what you wrote.
+        </p>
+
+        <div class="timer" id="timer">
+          <p class="timer__display" id="timerDisplay" aria-live="off">10:00</p>
+          <div class="timer__controls">
+            <button type="button" class="btn btn--primary" id="timerStart">Start 10 minutes</button>
+            <button type="button" class="btn btn--ghost" id="timerReset" hidden>Reset timer</button>
+          </div>
+          <p class="timer__status" id="timerStatus" aria-live="polite"></p>
+        </div>
+
+        <button type="button" class="btn btn--link" id="reflectEdit">Change what I wrote</button>
+      </div>
+
+      <!-- Optional device-local tally -->
+      <div class="tally" id="tally" aria-labelledby="tally-title">
+        <h3 id="tally-title">Did you show up today?</h3>
+        <p class="tally__privacy">Your personal tally, saved only in this browser on this device. No account, no sharing — if you clear your browser data, it resets.</p>
+        <div class="tally__row">
+          <p class="tally__count" aria-live="polite"><span id="tallyCount">0</span> <span id="tallyUnit">days</span> showed up</p>
+          <button type="button" class="btn btn--primary" id="tallyButton">I showed up today</button>
+        </div>
+        <p class="tally__message" id="tallyMessage" aria-live="polite"></p>
+        <button type="button" class="btn btn--link tally__reset" id="tallyReset">Reset my tally</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- PLACEHOLDER: replace with your own name or site name, or delete the line. -->
+    <p>Made by [YOUR NAME OR SITE NAME]. No tracking, no accounts, nothing sent anywhere.</p>
+    <p><a href="#top">Back to the top</a></p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
+ 
